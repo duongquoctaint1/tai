@@ -1,0 +1,44 @@
+﻿@model cuahangdidong.Models.didong
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" href="~/css/form.css" />
+<h1>Thông Tin</h1>
+<div class="form">
+
+    <div>
+        <h4>didong</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Người Mua Hàng
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ChứVụ)
+            </dd>
+            <dt class="col-sm-2">
+                Người Mua Hàng
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NgàyPhátHành)
+            </dd>
+            <dt class="col-sm-2">
+                Hãng Điện Thoại
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ThểLoại)
+            </dd>
+            <dt class="col-sm-2">
+                Gía Bán
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GíaBán)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Sữa Thông Tin" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Quay Lại</a>
+    </div>
+   </div> 

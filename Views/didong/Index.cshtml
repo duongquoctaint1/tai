@@ -1,0 +1,78 @@
+﻿@model cuahangdidong.Models.didongGenreViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/form.css" />
+<link rel="stylesheet" href="~/css/Style.css" />
+
+<h1>Lịch Sử Người Mua Hàng</h1> 
+
+
+<p>
+    <a asp-action="Create">Tạo Mới</a>
+</p>
+<form asp-controller="didong" asp-action="Index" method="get">
+
+    <p>
+        <select asp-for="didongThểLoại" asp-items="Model.ThểLoại">
+            <option value="">All</option>
+        </select>
+        Nhập: <input type="text" name="SearchString" />
+        <input type="submit" value="Tìm" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+                Người Mua Hàng
+            </th>
+            <th>
+                Ngày Mua
+            </th>
+            <th>
+                Hãng Điện Thoại
+            </th>
+            <th>
+                Gía Bán
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model.didong)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChứVụ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgàyPhátHành)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThểLoại)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GíaBán)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SốLượng)
+                </td>
+                <td>
+                    <a class="edit" asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                    <a class="detail" asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                    <a class="detele" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

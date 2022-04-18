@@ -1,0 +1,51 @@
+﻿@model cuahangdidong.Models.didong
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<link rel="stylesheet" href="~/css/form.css" />
+
+    <h1>Sữa Thông Tin</h1>
+
+    <h4>didong</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="ChứVụ" class="control-label">Người Mua Hàng</label>
+                        <input asp-for="ChứVụ" class="form-control" />
+                        <span asp-validation-for="ChứVụ" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NgàyPhátHành" class="control-label">Ngày Mua</label>
+                        <input asp-for="NgàyPhátHành" class="form-control" />
+                        <span asp-validation-for="NgàyPhátHành" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ThểLoại" class="control-label"> Hãng Điện Thoại</label>
+                        <input asp-for="ThểLoại" class="form-control" />
+                        <span asp-validation-for="ThểLoại" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GíaBán" class="control-label"> Gía Bán</label>
+                        <input asp-for="GíaBán" class="form-control" />
+                        <span asp-validation-for="GíaBán" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Quay Lại</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
